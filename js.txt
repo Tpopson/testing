@@ -1,0 +1,486 @@
+WHAT IS JAVASCRIPT ?
+********************
+•	High level (memory management), interpreted programing language
+•	Conforms to the ECMAScript specification
+•	Multi-paradigm
+•	Runs on the client/browser as well as on the server (Node.Js)
+
+
+WHY JAVASCRIPT ?
+*****************
+•	It is the programming language of the browser
+•	Build very interactive user interfaces with frameworks like React, Angular and Vue
+•	Used in building very fast server side full stack application.
+•	Used in mobile development (React Native, NativeScript, Ionic).
+
+
+
+WHAT YOU NEED TO LEARN IN THIS COURSE
+*************************************
+•	Variables & Data Types
+•	Arrays
+•	Object Literals
+•	Methods for strings, arrays, objects
+•	Loops – (for, while, for..of, forEach, map)
+•	Conditionals (if, ternary & switch)
+•	Functions (normal & arrow)
+•	DOM Selection
+•	DOM Manipulation
+
+
+
+
+
+Variables & Data Types
+**********************
+There are two ways you can use javascript in your html file.
+
+Method one:
+You can add the file by just adding an opening tag and a closing tag of the script.
+
+    <script>
+    
+    </script>
+
+
+Method two:
+This is the recommended way of adding your javascript with your html.
+This method requires you to create a separate file and then link it together with the html file.
+   
+    <script src=""></script>
+
+
+alert and console
+*****************
+We can use the alert and console to print and for debug:
+
+alert('Hello world');
+
+console.log('Hello There');
+
+console.error('This is an error');
+
+console.warn('This is a warning');
+
+
+variables
+*********
+The var, let and const.
+
+Var; it is old school, its globally scoped during conditional statement (conflict issue).
+
+Let & Conts;  both modern and are block level scoped. The difference between let and const 
+is that with let you can reassign values and with const you can’t.
+
+let age = 40;
+age = 45; // you have reassign age
+console.log(age);
+
+const age = 40;
+age = 45; // this will flag an erro
+console.log(age)
+
+
+
+
+Data Types
+**********
+We have primitive data types (data is directly assigned to memory)
+Strings, number, Boolean, null, undefined, and symbol(this is not that common)
+const name = 'Nathaniel';
+const age = 20;
+const rating = 4.5
+const isCool = True;
+const x = null;
+const y = undefined;
+
+console.log(typeof name)
+
+
+concatenation
+*************
+Addition of strings using the (+) sign (old school):
+
+console.log('My name is ' + name + 'and i am ' + age +'years old');
+
+using the template string (` `)
+This is the modern way of concatenation and it the recommended method.
+console.log(`My name is ${name} and i am ${age} years old`);
+
+String properties and methods
+*****************************
+In using JavaScript properties and methods, it only have a property called the 
+length and several methods. To know the difference between them, methods ends with ().
+//  string properties and method
+ const s = 'bagshoebeltphone';
+
+  //length, toUpperCase
+ console.log(s.substring(0,5).toUpperCase())
+ console.log(s.startsWith)
+
+const str1 = 'Saturday night plans';
+
+ console.log(str1.startsWith('Sat'));
+//   expected output: true
+
+console.log(str1.startsWith('Sat',3));
+//  expected output: false
+
+
+We have reference data types 
+****************************
+Arrays
+These are variables that hold multiple values. We have couple of ways in creating arrays.
+
+Array constructor 
+*****************
+This is an old way of using array.
+const numbers = new Array(1,2,3,4,5);
+console.log(numbers)
+
+Modern method of using array
+***************************
+const food = ['amala', 'eba' ,'rice','fufu']
+in javascript we can have multiple datatype within an array
+const food = ['amala', 'eba' ,'rice','fufu',30,true]
+Arrays are zero based, we can access the data and also reassign values to the data.
+const food = ['amala', 'eba' ,'rice','fufu',30,true]
+console.log(food[1])
+
+const food = ['amala', 'eba' ,'rice','fufu',30,true]
+food[2] = 'beans'
+console.log(food)
+
+You cannot reassign the whole array  but you can manipulate it and use method on it using const.
+const food = ['amala', 'eba' ,'rice','fufu',30,true]
+food = [] // this will flag error
+
+Array properties and methods
+****************************
+const food = ['amala', 'eba' ,'rice','fufu',30,true]
+
+food.push('garri') //push a value to the end
+food.unshift('mango') // this is adding value to the begining
+food.pop() // this pops away the last value 
+food.reverse() // this reverse the data from right to left
+food.splice(0,4) // this take away data from the array
+
+// to check if something is an array
+console.log(Array.isArray(food));
+
+// getting the index of a data
+console.log(food.indexOf('eba'));
+console.log(food)
+
+
+
+Object Literals
+***************
+This is basically key and value pair
+
+const person = {
+    firstName: 'Nathaniel',
+    lastName: 'Nosa',
+    age: 30,
+    hobbies: ['party','code','read','vacation','swim','music'],
+    address: {
+        street: 'Lagos,',
+        state:'Sate'
+    }
+};
+console.log(person)
+
+// single value
+console.log(person.firstName, person.lastName)
+console.log(person.address.state);
+
+// de-structuring
+const {firstName, lastName, address:{street}} = person;
+// console.log(street)
+
+Array of objects
+******************
+// array of objects
+
+const todos = {
+    {
+        id: 1,
+        task : 'Study bootstrap',
+        isComplete: true
+    },
+    {
+        id: 2,
+        task : 'Study git and git hub',
+        isComplete: true
+    },
+    {
+        id: 3,
+        task : 'Study javascript',
+        isComplete: false
+    },
+]
+
+console.log(todos[1].task);
+
+
+
+Loops
+*****
+This is used to iterate information either of an array, object etc. 
+we have several kind of loops that we will be considering in this course
+
+For loop
+********
+
+for(let i=0; i<10; i++){
+    console.log(`this is ${i}`)
+}
+
+
+While loop
+**********
+
+let i = 0;
+while(i<10){
+    console.log(`this is count ${i}`)
+    i++;
+}
+
+
+
+
+Conditional
+***********
+As the word implies this is executing blocks of code base on certain conditions.
+
+if
+**
+const x = 10;
+if(x == 10){
+    console.log("x is 10");
+}
+
+As far as the equal sign goes, if we use (==) equal this will match only the value,
+ but if we use the (===) this will match both the data type and the value.
+
+else
+****
+const x = 20;
+if(x == 10){
+    console.log("x is 10");
+}else{
+    console.log("x is not 10");
+}
+
+else if
+*******
+This is used for extra conditions, can have/use as many else..if.
+
+const x = 20;
+if(x == 10){
+    console.log("x is 10");
+}else if(x===20){
+    console.log("x is 20");
+}else{
+    console.log("x is not 10");
+}
+
+multiple condition
+*****************
+
+const x = 20;
+const y = 30;
+if (x > 5 && y < 25 ){
+    console.log('x and y are both great values')
+}
+
+Teneray condition
+*****************
+This is just like a shorthand way of the if statement and is used to assign variables based on condition.
+const x = 10;
+const color = x > 10 ? 'red' : 'blue';
+console.log(color)
+
+
+switches
+********
+This is another way to evaluate a condition.
+
+const color = 'red'
+switch(color){
+    case 'red':
+        console.log('the color is red');
+        break;
+    case 'blue':
+        console.log('the color is blue');
+        break;
+    default:
+        console.log('The color is not red or blue')
+}
+
+
+Function
+********
+Function is a block of code which only runs when it is called upon.
+
+function addNum(num1, num2){
+    console.log( num1 + num2);
+}
+addNum(5,6)
+
+if no value is passed to the called function, it will give NaN (not a number) in return,
+ and with function default value can be passed in the parameter.
+
+function addNum(num1=3, num2=3){
+    console.log( num1 + num2);
+}
+addNum()
+
+
+if default value is passed in the parameter and value is also passed when the 
+functionn is called, then the value passed when the function is called will override.
+
+function addNum(num1=3, num2=3){
+    return num1 + num2;
+}
+console.log(addNum(5,6))
+
+
+arrow function
+**************
+
+const addNum=(num1=3, num2=3)=>{
+    return num1 + num2;
+}
+console.log(addNum(5,6))
+
+
+The code can be written in one line that is if we are not assigning a variable
+
+const addNum=(num1=3, num2=3)=>console.log(num1 + num2)
+addNum(5,6)
+
+or
+
+const addNum = (num1, num2) => num1 + num2;
+console.log(addNum(5,6));
+
+if you have only one parameter then you don’t need the bracket.
+
+const addNum = num1 => num1 + 5;
+console.log(addNum(5));
+
+There is the lexical (this) key word as an extra advantage.
+
+
+OOP (prototype & Classes)
+*************************
+
+Constructor function
+********************
+function Person(firstName, lastName, dob){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = dob;
+}
+
+    // initialize object
+    ********************
+const person1 = new Person('Nathaniel', 'Nosa', 'April 14');
+console.log(person1)
+
+we can pass in the dob as a date function instead of string.
+
+function Person(firstName, lastName, dob){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+}
+    // initialize object
+const person1 = new Person('Nathaniel', 'Nosa', 'April-14-1999');
+console.log(person1.dob)
+we can add methods which are basically function to the Person objects
+// construction function
+function Person(firstName, lastName, dob){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+    this.getMyYear = function(){
+        return this.dob.getFullYear();
+    }
+}
+
+    // initialize object
+    *******************
+const person1 = new Person('Nathaniel', 'Nosa', 'April-14-1999');
+console.log(person1.getMyYear())
+
+ prototype
+ ********
+Person.prototype.getFullName = function(){
+    return `${this.firstName} ${this.lastName}`;
+}
+console.log(person1.getFullName())
+
+class
+*****
+Using the class method is very easy that why most developers called it syntactic sugar. 
+
+class Person{
+    constructor(firstName, lastName, dob){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+    }
+
+    getFullName = function(){
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+// initialize a person object
+*****************************
+const person1 = new Person('Olamide', 'Falanna', 'May-20-1999');
+const person2 = new Person('Nathaniel', 'Nosa', 'April-14-1999');
+
+console.log(person1)
+// console.log(person2.dob.getFullYear())
+console.log(person1.getFullName())
+
+
+DOM Selection
+************
+This means selecting things from the html element and can put them into variable and work with them.
+We have single element selectors and multiple element selectors.
+
+Single element selectors
+***********************
+// get element by id
+********************
+console.log(document.getElementById('form'));
+const form = document.getElementById('form');
+console.log(form);
+
+// get element by queryselector
+*******************************
+console.log(document.querySelector('card'));
+const card = document.querySelector('card');
+console.log(card)
+
+Multiple element selector
+************************
+// get element by class name
+console.log(document.getElementsByClassName('.list-group-item'));
+// get element by tag name
+console.log(document.getElementsByTagName('li'));
+// get element by queryselector all
+console.log(document.querySelectorAll('.list-group-item'));
+
+DOM Manipulation
+***************
+Dom actually means the user interface i.e the html point of view.
+ Manipulation means doing basic editing or changes to the DOM.
+
+const btn = document.querySelector('.btn');
+btn.style.backgroundColor = 'red';
+          background
